@@ -20,8 +20,10 @@ public class Demo {
         int[][] matrix = new int[rows][cols];
 
         for (int row = 0; row < matrix.length; row++) {
+            line = scanner.nextLine();
+            split = line.split("\\s+");
             for (int col = 0; col < matrix[row].length; col++) {
-                
+                matrix[row][col] = Integer.parseInt(split[col]);
             }            
         }
         return matrix;
