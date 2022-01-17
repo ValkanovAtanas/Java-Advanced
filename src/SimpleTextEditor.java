@@ -13,6 +13,8 @@ public class SimpleTextEditor {
             String[] inputArray = scanner.nextLine().split("\\s++");
             if (!stack.isEmpty()) {
                 myText = stack.peek();
+            } else {
+                myText = "";
             }
             String command = inputArray[0];
             switch (command) {
