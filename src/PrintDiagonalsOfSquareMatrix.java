@@ -5,6 +5,8 @@ public class PrintDiagonalsOfSquareMatrix {
         Scanner scanner = new Scanner(System.in);
         int [][] matrix = readSquareMatrix(scanner);
 
+        System.out.println();
+
         printFirstDiagonal(matrix);
         printSecondDiagonal(matrix);
     }
