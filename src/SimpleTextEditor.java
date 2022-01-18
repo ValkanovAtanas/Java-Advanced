@@ -6,13 +6,15 @@ public class SimpleTextEditor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int numOfLines = Integer.parseInt(scanner.nextLine());
-        String myText = "";
+        String myText;
         Deque<String> stack = new ArrayDeque<>();
 
         for (int i = 0; i < numOfLines; i++) {
             String[] inputArray = scanner.nextLine().split("\\s++");
             if (!stack.isEmpty()) {
                 myText = stack.peek();
+            } else {
+                myText = "";
             }
             String command = inputArray[0];
             switch (command) {
