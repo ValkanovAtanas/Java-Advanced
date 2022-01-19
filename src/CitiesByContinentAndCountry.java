@@ -11,7 +11,6 @@ public class CitiesByContinentAndCountry {
             continentMap = processTheMap(continentMap, input);
         }
         printTheMap(continentMap);
-        System.out.println();
     }
 
     private static void printTheMap(Map<String, Map<String, List<String>>> continentMap) {
