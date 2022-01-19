@@ -3,35 +3,64 @@ import java.util.*;
 public class CitiesByContinentAndCountry {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-        int num = Integer.parseInt(scanner.nextLine());
         Map<String, Map<String, List<String>>> continentMap = new LinkedHashMap<>();
-        for (int i = 0; i < num; i++) {
-            String[] input = scanner.nextLine().split("\\s++");
-            String continent = input[0];
-            String country = input[1];
-            String city = input[2];
+        int numOfLines = Integer.parseInt(scanner.nextLine());
 
-            if (continentMap.isEmpty()) {
-                Map<String, List<String>> countryCity = new LinkedHashMap<>();
-                List<String> citiesList = new ArrayList<>();
-                citiesList.add(city);
-                countryCity.put(country, citiesList);
-                continentMap.put(continent, countryCity);
+        for (int i = 0; i < numOfLines; i++) {
+            String[] input = scanner.nextLine().split("\\s+");
+            continentMap = processTheMap(continentMap, input);
+        }
+        printTheMap(continentMap);
+        System.out.println();
+    }
+
+    private static void printTheMap(Map<String, Map<String, List<String>>> continentMap) {
+        int numOfContinents = continentMap.size();
+        for (Map.Entry<String, Map<String, List<String>>> entry : continentMap.entrySet()) {
+            String currentContinent = entry.getKey();
+            System.out.printf("%s:%n", currentContinent);
+            Map<String, List<String>> countryAndCitiesMap = new LinkedHashMap<>();
+            countryAndCitiesMap = entry.getValue();
+            for (Map.Entry<String, List<String>> secEntry : countryAndCitiesMap.entrySet()){
+                {
+                    String currentCountry = secEntry.getKey();
+                    System.out.printf(" %s -> ", currentCountry);
+                    List<String> citiesList = new ArrayList<>();
+                    citiesList = secEntry.getValue();
+                    String citiesListToPrint = citiesList.toString();
+                    citiesListToPrint = citiesListToPrint.replaceAll("\\[|\\]", "");
+                    System.out.println(citiesListToPrint);
+                }
+            }
+
+        }
+    }
+
+    private static Map<String, Map<String, List<String>>> processTheMap(Map<String, Map<String, List<String>>> continentMap, String[] input) {
+        String continentFromInput = input[0];
+        String countryFromInput = input[1];
+        String cityFromInput = input[2];
+        Map<String, List<String>> countryAndCitiesMap = new LinkedHashMap<>();
+
+        if (!continentMap.containsKey(continentFromInput)) {
+            List<String> citiesList = new ArrayList<>();
+            citiesList.add(cityFromInput);
+            countryAndCitiesMap.put(countryFromInput, citiesList);
+            continentMap.put(continentFromInput, countryAndCitiesMap);
+        } else {
+            countryAndCitiesMap = continentMap.get(continentFromInput);
+            List<String> citiesList = new ArrayList<>();
+            if (!countryAndCitiesMap.containsKey(countryFromInput)) {
+                citiesList.add(cityFromInput);
+                countryAndCitiesMap.put(countryFromInput, citiesList);
+                continentMap.put(continentFromInput, countryAndCitiesMap);
             } else {
-                Map<String, List<String>> countryCity = new LinkedHashMap<>();
-                String currentContinent;
-
-                String currentCity;
-                for (Map.Entry<String, Map<String, List<String>>> entry : continentMap.entrySet()) {
-                    currentContinent = entry.getKey();
-                }
-                for (Map.Entry<String, Map<String, List<String>>> entry : continentMap.entrySet()) {
-
-                }
-                //countryCity.put(country)
+                citiesList = countryAndCitiesMap.get(countryFromInput);
+                citiesList.add(cityFromInput);
+                countryAndCitiesMap.put(countryFromInput, citiesList);
+                continentMap.put(continentFromInput, countryAndCitiesMap);
             }
         }
-        System.out.println();
+        return continentMap;
     }
 }
