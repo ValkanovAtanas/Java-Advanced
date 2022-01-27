@@ -1,3 +1,5 @@
+package multidimensional_arrays;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
