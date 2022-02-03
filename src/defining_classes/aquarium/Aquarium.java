@@ -32,7 +32,7 @@ public class Aquarium {
 
     public String findFish(String name) {
         if (fishInPool.containsKey(name)) {
-            return name;
+            return fishInPool.get(name).toString();
         }
         return null;
     }
@@ -46,7 +46,7 @@ public class Aquarium {
     }
 
     public void add(Fish fish) {
-        if (this.size > 0 && !this.fishInPool.containsKey(fish.getName())) {
+        if (this.capacity > 0 && !this.fishInPool.containsKey(fish.getName())) {
             this.fishInPool.put(fish.getName(), fish);
             this.capacity -= 1;
         }

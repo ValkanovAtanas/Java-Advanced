@@ -13,5 +13,7 @@ public class Main {
         aquarium.add(secondFish);
         aquarium.add(thirdFish);
         System.out.println(aquarium.report());
+        System.out.println(aquarium.getFishInPool());
+        System.out.println(aquarium.findFish("Nemo"));
     }
 }
