@@ -1,6 +1,7 @@
-import java.io.FileInputStream;
+package defining_classes.hotel;
 
-public class Demo {
+
+public class Main {
     public static void main(String[] args) {
 
     }
