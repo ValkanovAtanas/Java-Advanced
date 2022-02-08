@@ -23,14 +23,8 @@ public class Hotel {
         return false;
     }
 
-    public String getPerson (String name, String hometown) {
-        if (this.personMap.get(name).getName().equals(name) && this.personMap.get(name).getHometown().equals(hometown)) {
-            return String.format("Person %s: %d, Age: %d, Hometown: %s", this.personMap.get(name).getName(), this.personMap.get(name).getId(), this.personMap.get(name).getAge(), this.personMap.get(name).getHometown());
-        }
-        return null;
-    }
 
-    public Person getPersonSec (String name, String hometown) {
+    public Person getPerson (String name, String hometown) {
         if (this.personMap.containsKey(name)) {
             if (this.personMap.get(name).getHometown().equals(hometown))
             return this.personMap.get(name);
