@@ -1,4 +1,4 @@
-package cafe;
+package exams.cafe;
 
 public class Employee {
     private String name;

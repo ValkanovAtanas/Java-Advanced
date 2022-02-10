@@ -1,4 +1,4 @@
-package retake_exam_august.formula_one;
+package exams.retake_exam_august.formula_one;
 
 import java.util.Scanner;
 

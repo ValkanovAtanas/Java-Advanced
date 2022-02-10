@@ -1,4 +1,4 @@
-package groomingSalon;
+package exams.groomingSalon;
 
 import java.util.ArrayList;
 import java.util.List;

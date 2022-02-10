@@ -1,4 +1,4 @@
-package retake_exam_august.pastry_shop;
+package exams.retake_exam_august.pastry_shop;
 
 import java.util.*;
 

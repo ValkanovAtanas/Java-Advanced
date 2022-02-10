@@ -1,4 +1,4 @@
-package cafe;
+package exams.cafe;
 
 import java.util.ArrayList;
 import java.util.List;

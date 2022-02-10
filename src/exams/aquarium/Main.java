@@ -1,6 +1,4 @@
-package aquarium;
-
-import java.util.Scanner;
+package exams.aquarium;
 
 public class Main {
     public static void main(String[] args) {

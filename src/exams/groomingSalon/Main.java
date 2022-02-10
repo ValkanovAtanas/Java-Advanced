@@ -1,4 +1,4 @@
-package groomingSalon;
+package exams.groomingSalon;
 
 public class Main {
     public static void main(String[] args) {
