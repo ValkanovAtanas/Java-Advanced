@@ -23,10 +23,10 @@ public class Demo {
                 break;
             if (freshnessStack.isEmpty())
                 break;
-            if (ingredientsQueue.peek() == 0)
+            if (ingredientsQueue.peek() == 0){
                 ingredientsQueue.poll();
-            if(freshnessStack.peek() == 0)
-                freshnessStack.pop();
+                continue;
+            }
             int multiplication = ingredientsQueue.peek() * freshnessStack.peek();
             if(cocktailsMenu.containsKey(multiplication)) {
                 ingredientsQueue.poll();
