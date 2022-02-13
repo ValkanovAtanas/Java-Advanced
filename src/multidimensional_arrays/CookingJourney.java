@@ -24,7 +24,7 @@ public class CookingJourney {
             System.out.println("Bad news! You are out of the pastry shop.");
         }
 
-        if(isOut[0] == 0 && money[0] > 50) {
+        if(isOut[0] == 0 && money[0] >= 50) {
             System.out.println("Good news! You succeeded in collecting enough money!");
         }
         System.out.printf("Money: %d%n", money[0]);
@@ -103,7 +103,7 @@ public class CookingJourney {
             currPosition[0] = newRowPosition;
             currPosition[1] = newColPosition;
         }
-        if (money[0] > 50) {
+        if (money[0] >= 50) {
             areMoneyEnough[0] = 1;
         }
     }
