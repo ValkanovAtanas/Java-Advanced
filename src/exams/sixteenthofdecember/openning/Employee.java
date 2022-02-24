@@ -22,4 +22,11 @@ public class Employee {
     public String getName() {
         return this.name;
     }
+
+    public int getAge() {
+        return this.age;
+    }
+    public String getCountry() {
+        return this.country;
+    }
 }
