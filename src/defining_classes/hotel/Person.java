@@ -17,19 +17,19 @@ public class Person {
 
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getHometown() {
-        return hometown;
+        return this.hometown;
     }
 
     public String toString() {
