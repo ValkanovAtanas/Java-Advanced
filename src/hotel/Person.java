@@ -1,4 +1,4 @@
-package defining_classes.hotel;
+package hotel;
 
 public class Person {
     private String name;
@@ -7,14 +7,28 @@ public class Person {
     private String hometown = "n/a";
 
 
-
-    public Person (String name, int id, int age, String hometown) {
+    public Person(String name, int id, int age, String hometown) {
         this.name = name;
         this.id = id;
         this.age = age;
         this.hometown = hometown;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setHometown(String hometown) {
+        this.hometown = hometown;
+    }
 
     public int getAge() {
         return this.age;

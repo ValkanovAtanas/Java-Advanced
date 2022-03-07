@@ -1,5 +1,4 @@
-package defining_classes.hotel;
-
+package hotel;
 
 public class Main {
     public static void main(String[] args) {
