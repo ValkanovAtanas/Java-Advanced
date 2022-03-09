@@ -59,9 +59,8 @@ public class Main {
         } else if (matrix[position[0]][position[1]] == 'T') {
             position[0] = currPosRow;
             position[1] = currPosCol;
-        } else {
-            matrix[position[0]][position[1]] = 'f';
         }
+        matrix[position[0]][position[1]] = 'f';
 
     }
 
