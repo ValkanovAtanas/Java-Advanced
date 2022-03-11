@@ -24,6 +24,13 @@ public class Main {
         Map<String, Integer> craftedToys = new TreeMap<>();
 
         while (areBothBoxesFull(materialsStack, magicLevelQueue)) {
+            if (materialsStack.peek() == 0 || magicLevelQueue.peek() == 0) {
+                if (materialsStack.peek() == 0)
+                    materialsStack.pop();
+                if (magicLevelQueue.peek() == 0)
+                    magicLevelQueue.poll();
+                continue;
+            }
 
             int multiplication = materialsStack.peek() * magicLevelQueue.peek();
             if (presentsList.containsKey(multiplication)) {
@@ -63,7 +70,7 @@ public class Main {
 
         if (!magicLevelQueue.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            sb.append("Materials left: ");
+            sb.append("Magic left: ");
             for (Integer integer : magicLevelQueue) {
                 sb.append(integer).append(", ");
             }
