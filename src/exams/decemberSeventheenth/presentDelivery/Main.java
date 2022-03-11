@@ -32,11 +32,11 @@ public class Main {
                 System.out.println("Santa ran out of presents!");
                 break;
             }
-            moveSanta(matrix, command, presentsCount);
+            moveSanta(matrix, command, presentsCount, presentsGivenToNiceKids);
         }
         printTheMatrix(matrix);
         if (findNiceKids(matrix) == 0) {
-            System.out.printf("Good job, Santa! %d happy nice kid/s.", niceKidsAtFirst);
+            System.out.printf("Good job, Santa! %d happy nice kid/s.", presentsGivenToNiceKids[0]);
         } else {
             System.out.printf("No presents for %d nice kid/s.", findNiceKids(matrix));
         }
@@ -55,7 +55,7 @@ public class Main {
         return counter;
     }
 
-    private static void moveSanta(char[][] matrix, String command, int[] presentsCount) {
+    private static void moveSanta(char[][] matrix, String command, int[] presentsCount, int[] presentsGivenToNiceKids) {
         int[] position = findPositionOfSanta(matrix);
         int positionRow = position[0];
         int positionCol = position[1];
@@ -78,10 +78,11 @@ public class Main {
             matrix[position[0]][position[1]] = '-';
             matrix[positionRow][positionCol] = 'S';
             presentsCount[0]--;
+            presentsGivenToNiceKids[0]++;
         } else if (matrix[positionRow][positionCol] == 'C') {
             matrix[position[0]][position[1]] = '-';
             matrix[positionRow][positionCol] = 'S';
-            santaEatsCookie(matrix, positionRow, positionCol, presentsCount);
+            santaEatsCookie(matrix, positionRow, positionCol, presentsCount, presentsGivenToNiceKids);
         } else {
             matrix[position[0]][position[1]] = '-';
             matrix[positionRow][positionCol] = 'S';
@@ -89,25 +90,30 @@ public class Main {
     }
 
 
-    private static void santaEatsCookie(char[][] matrix, int positionRow, int positionCol, int[] presentsCount) {
+    private static void santaEatsCookie(char[][] matrix, int positionRow, int positionCol, int[] presentsCount, int[] presentsGivenToNiceKids) {
         if (matrix[positionRow - 1][positionCol] == 'V' || matrix[positionRow - 1][positionCol] == 'X') {
             presentsCount[0]--;
+            presentsGivenToNiceKids[0]++;
             matrix[positionRow - 1][positionCol] = '-';
         }
 
         if (matrix[positionRow + 1][positionCol] == 'V' || matrix[positionRow + 1][positionCol] == 'X') {
             presentsCount[0]--;
+            presentsGivenToNiceKids[0]++;
             matrix[positionRow + 1][positionCol] = '-';
         }
 
         if (matrix[positionRow][positionCol - 1] == 'V' || matrix[positionRow][positionCol - 1] == 'X') {
             presentsCount[0]--;
+            presentsGivenToNiceKids[0]++;
             matrix[positionRow][positionCol - 1] = '-';
         }
 
-        if (matrix[positionRow][positionCol + 1] == 'V' || matrix[positionRow][positionCol + 1] == 'X')
+        if (matrix[positionRow][positionCol + 1] == 'V' || matrix[positionRow][positionCol + 1] == 'X') {
             presentsCount[0]--;
-        matrix[positionRow][positionCol + 1] = '-';
+            presentsGivenToNiceKids[0]++;
+            matrix[positionRow][positionCol + 1] = '-';
+        }
     }
 
     private static void printTheMatrix(char[][] matrix) {
