@@ -22,6 +22,10 @@ public class Python {
             if (isSnakeDead[0] == 1) {
                 break;
             }
+
+            if (findFoodCount(matrix) == 0) {
+                break;
+            }
         }
         int foodCount = findFoodCount(matrix);
         if (isSnakeDead[0] == 0 && foodCount > 0) {
